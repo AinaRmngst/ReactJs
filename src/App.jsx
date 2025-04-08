@@ -1,5 +1,7 @@
 import mbdslogo from './assets/Logo.png'
 import './App.css'
+import MainContent from './components/MainContent'
+import data from './data/data.json'
 
 function Header(){
   return(
@@ -12,13 +14,6 @@ function Header(){
       </header>
   )
 }
-function MainContent(){
-  return(
-    <content>
-      <h3>Ici nous afficherons des information interressante</h3>
-    </content>
-  )
-}
 function Footer(){
   return(
     <footer>
@@ -27,17 +22,16 @@ function Footer(){
   )   
 }
 function App() {
+  const randomNote = data[Math.floor(Math.random()*data.length)];
   return (
-    <>
     <div className='app-container'>
       <Header />
 
-      <MainContent />
+      <MainContent note={randomNote} />
 
       <Footer />
+
     </div>
-      
-    </>
   )
 }
 
